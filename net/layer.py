@@ -54,6 +54,8 @@ def main():
             b_range = [0.5,0.9]
         )
 
+    print(l.weights)
+
 
 
 if __name__ == '__main__':

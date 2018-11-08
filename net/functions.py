@@ -16,6 +16,7 @@ import numpy as np
 
 class Function:
 
+
     def __init__(self, name, function_set):
 
         self.name = name

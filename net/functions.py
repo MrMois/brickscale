@@ -59,8 +59,33 @@ class ActivationFunction(Function):
 
 class CostFunction:
 
+
+    @staticmethod
+    def quadratic(activation, target, gradient):
+
+        if not gradient:
+            return 0.5 * (activation - target) ** 2
+        else:
+            return (activation - target)
+
+
     def __init__(self, name):
-        pass
+
+        # list of available functions
+        function_set = {
+            "quadratic" : CostFunction.quadratic
+        }
+
+        Function.__init__(self, name, function_set)
+
+
+    def gradient(self, activation, target):
+
+        return self.function(activation, target, gradient=True)
+
+    def compute(self, activation, target):
+
+        return self.function(activation, target, gradient=False)
 
 
 
@@ -70,11 +95,19 @@ def main():
 
     x = 5
 
-    y = a.compute(x)
-    g = a.gradient(y) # gradient of x
+    act = a.compute(x)
+    d_act = a.gradient(act) # gradient of x
 
-    print(x, y, g)
+    print(x, act, d_act)
 
+    c = CostFunction("quadratic")
+
+    target = 3
+
+    loss = c.compute(act, target)
+    d_loss = c.gradient(act, target)
+
+    print(loss, d_loss)
 
 
 

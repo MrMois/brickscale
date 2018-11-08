@@ -6,8 +6,8 @@ Wrapper for activation and cost functions.
 Functions can be accessed via compute(x) and gradient(y), where number of 
 parameters may vary. List of available functions in specific class 
 constructor, see "function_set".
-Some functions, e.g. "sigmoid", take their output for faster gradient
-computing.
+Some functions, e.g. "sigmoid", take their output as parameter for faster
+gradient computing.
 """
 
 

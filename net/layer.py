@@ -3,7 +3,6 @@
 
 
 import numpy as np
-
 from functions import ActivationFunction
 
 
@@ -17,6 +16,7 @@ class Layer:
         self.activation = ActivationFunction(activation)
 
 
+    # returns a new layer with weights
     @staticmethod
     def init_with_weights(input_size, output_size, activation,
         w_range, b_range):
@@ -29,9 +29,11 @@ class Layer:
         weights = w_multiplier * np.random.rand(output_size, input_size) \
                 + w_range[0]
 
+        # extra row for bias
         biases = b_multiplier * np.random.rand(output_size, 1) \
                + b_range[0]
 
+        # append bias vector to weight matrix
         layer.weights = np.c_[weights, biases]
 
         return layer

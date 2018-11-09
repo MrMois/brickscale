@@ -22,7 +22,7 @@ class Layer:
 
     # returns a new layer with weights
     @staticmethod
-    def init_with_weights(
+    def new_layer(
             activation_func, input_size,
             output_size, w_range, b_range
             ):

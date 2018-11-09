@@ -17,7 +17,7 @@ class OutputLayer(Layer):
 
     # returns a new output layer with weights
     @staticmethod
-    def init_with_weights(
+    def new_output_layer(
             cost_func, activation_func, input_size,
             output_size, w_range, b_range
             ):
